@@ -5,5 +5,10 @@
   "main": "index.js",
   "repository": "https://github.com/oleglegun/relax-fm-radio-alexa-skill",
   "author": "Oleg Legun <oleg.legun@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^12.12.15",
+    "ask-sdk-core": "^2.7.0",
+    "ask-sdk-model": "^1.25.1"
+  }
 }
