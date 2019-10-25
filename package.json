@@ -1,0 +1,9 @@
+{
+  "name": "relax-fm-radio-alexa-skill",
+  "version": "0.0.1",
+  "description": "Listen to your favorite radio station right on Alexa device",
+  "main": "index.js",
+  "repository": "https://github.com/oleglegun/relax-fm-radio-alexa-skill",
+  "author": "Oleg Legun <oleg.legun@gmail.com>",
+  "license": "MIT"
+}
