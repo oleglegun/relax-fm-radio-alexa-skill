@@ -7,8 +7,10 @@
   "author": "Oleg Legun <oleg.legun@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@types/node": "^12.12.15",
     "ask-sdk-core": "^2.7.0",
     "ask-sdk-model": "^1.25.1"
+  },
+  "devDependencies": {
+    "@types/node": "^12.12.15"
   }
 }
