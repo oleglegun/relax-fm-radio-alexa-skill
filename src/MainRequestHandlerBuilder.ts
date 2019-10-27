@@ -1,7 +1,7 @@
-import { BaseRequestHandler } from './BaseRequestHandler'
 import { IHandler } from './interfaces/IHandler'
+import { MainRequestHandler } from './MainRequestHandler'
 
-export class BaseRequestHandlerBuilder {
+export class MainRequestHandlerBuilder {
     private _handlers: IHandler
 
     constructor() {
@@ -17,7 +17,7 @@ export class BaseRequestHandlerBuilder {
         return this
     }
 
-    public build(): BaseRequestHandler {
-        return new BaseRequestHandler(this)
+    public build(): MainRequestHandler {
+        return new MainRequestHandler(this)
     }
 }

@@ -1,17 +1,17 @@
 import { HandlerInput, RequestHandler } from 'ask-sdk-core'
 import { Response } from 'ask-sdk-model'
 
-import { BaseRequestHandlerBuilder } from './BaseRequestHandlerBuilder'
 import { IHandler } from './interfaces/IHandler'
+import { MainRequestHandlerBuilder } from './MainRequestHandlerBuilder'
 
-export class BaseRequestHandler implements RequestHandler {
-    public static builder(): BaseRequestHandlerBuilder {
-        return new BaseRequestHandlerBuilder()
+export class MainRequestHandler implements RequestHandler {
+    public static builder(): MainRequestHandlerBuilder {
+        return new MainRequestHandlerBuilder()
     }
 
     private handlers: IHandler
 
-    constructor(builder: BaseRequestHandlerBuilder) {
+    constructor(builder: MainRequestHandlerBuilder) {
         this.handlers = builder.handlers
     }
 
