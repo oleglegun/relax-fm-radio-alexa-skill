@@ -1,17 +1,21 @@
 import { HandlerInput } from 'ask-sdk-core'
 import { Response } from 'ask-sdk-model'
 import { IHandler } from '../interfaces/IHandler'
+import { playbackController } from '../PlaybackController'
 
 export const IntentHandlers: IHandler = {
     LaunchRequest: async function(handlerInput: HandlerInput): Promise<Response> {
         return this.PlayRelaxRadio(handlerInput)
     },
     PlayRelaxRadio: async function(handlerInput: HandlerInput): Promise<Response> {
-        return null
+        return Promise.resolve(playbackController.play())
     },
 
     'AMAZON.HelpIntent': async function(handlerInput: HandlerInput): Promise<Response> {
-        return null
+        return handlerInput.responseBuilder
+            .speak("Say 'Play' to start playing Relax FM Radio")
+            .withShouldEndSession(false)
+            .getResponse()
     },
     SessionEndedRequest: async function(handlerInput: HandlerInput): Promise<Response> {
         return Promise.resolve(handlerInput.responseBuilder.getResponse())
@@ -21,7 +25,7 @@ export const IntentHandlers: IHandler = {
         return Promise.resolve(handlerInput.responseBuilder.getResponse())
     },
     Unhandled: async function(handlerInput: HandlerInput): Promise<Response> {
-        return null
+        return handlerInput.responseBuilder.withShouldEndSession(true).getResponse()
     },
     'AMAZON.NextIntent': async (handlerInput: HandlerInput): Promise<Response> => {
         handlerInput.responseBuilder.speak('Sorry, skip tracks is not supported.')
@@ -43,10 +47,10 @@ export const IntentHandlers: IHandler = {
         return this['AMAZON.StopIntent'](handlerInput)
     },
     'AMAZON.StopIntent': async function(handlerInput: HandlerInput): Promise<Response> {
-        return null
+        return Promise.resolve(playbackController.stop())
     },
     'AMAZON.ResumeIntent': async function(handlerInput: HandlerInput): Promise<Response> {
-        return null
+        return Promise.resolve(playbackController.play())
     },
     'AMAZON.LoopOnIntent': async function(handlerInput: HandlerInput): Promise<Response> {
         return this['AMAZON.StartOverIntent'](handlerInput)
@@ -70,7 +74,7 @@ export const IntentHandlers: IHandler = {
      *  Remote Control commands
      *----------------------------------------------------------------------------*/
     'PlaybackController.PlayCommandIssued': async function(handlerInput: HandlerInput): Promise<Response> {
-        return null
+        return Promise.resolve(playbackController.play())
     },
     'PlaybackController.NextCommandIssued': async (handlerInput: HandlerInput): Promise<Response> => {
         return Promise.resolve(handlerInput.responseBuilder.getResponse())
@@ -79,6 +83,6 @@ export const IntentHandlers: IHandler = {
         return Promise.resolve(handlerInput.responseBuilder.getResponse())
     },
     'PlaybackController.PauseCommandIssued': async function(handlerInput: HandlerInput): Promise<Response> {
-        return null
+        return Promise.resolve(playbackController.stop())
     },
 }
