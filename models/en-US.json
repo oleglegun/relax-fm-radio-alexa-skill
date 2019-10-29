@@ -1,0 +1,48 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "relax radio",
+            "intents": [
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.PauseIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.ResumeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "PlayRelaxRadio",
+                    "slots": [],
+                    "samples": [
+                        "play",
+                        "play relax radio",
+                        "play radio",
+                        "play radio relax"
+                    ]
+                }
+            ],
+            "types": []
+        }
+    }
+}
