@@ -5,7 +5,7 @@ export const CheckAudioInterfaceHandler = {
     canHandle(handlerInput: HandlerInput): boolean {
         let result = false
         try {
-            result = handlerInput.requestEnvelope.context.System.device.supportedInterfaces.AudioPlayer === undefined
+            result = handlerInput.requestEnvelope.context.System.device!.supportedInterfaces.AudioPlayer === undefined
         } catch (err) {
             // system.device or system.device.supportedInterfaces is undefined.
             // this happens when the skill receives audio player event or skill lifecycle events

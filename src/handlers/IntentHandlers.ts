@@ -1,14 +1,14 @@
 import { HandlerInput } from 'ask-sdk-core'
 import { Response } from 'ask-sdk-model'
 import { IHandler } from '../interfaces/IHandler'
-import { playbackController } from '../PlaybackController'
+import { radioPlaybackController } from '../RadioPlaybackController'
 
 export const IntentHandlers: IHandler = {
     LaunchRequest: async function(handlerInput: HandlerInput): Promise<Response> {
         return this.PlayRelaxRadio(handlerInput)
     },
     PlayRelaxRadio: async function(handlerInput: HandlerInput): Promise<Response> {
-        return Promise.resolve(playbackController.play())
+        return Promise.resolve(radioPlaybackController.play())
     },
 
     'AMAZON.HelpIntent': async function(handlerInput: HandlerInput): Promise<Response> {
@@ -47,10 +47,10 @@ export const IntentHandlers: IHandler = {
         return this['AMAZON.StopIntent'](handlerInput)
     },
     'AMAZON.StopIntent': async function(handlerInput: HandlerInput): Promise<Response> {
-        return Promise.resolve(playbackController.stop())
+        return Promise.resolve(radioPlaybackController.stop())
     },
     'AMAZON.ResumeIntent': async function(handlerInput: HandlerInput): Promise<Response> {
-        return Promise.resolve(playbackController.play())
+        return Promise.resolve(radioPlaybackController.play())
     },
     'AMAZON.LoopOnIntent': async function(handlerInput: HandlerInput): Promise<Response> {
         return this['AMAZON.StartOverIntent'](handlerInput)
@@ -74,7 +74,7 @@ export const IntentHandlers: IHandler = {
      *  Remote Control commands
      *----------------------------------------------------------------------------*/
     'PlaybackController.PlayCommandIssued': async function(handlerInput: HandlerInput): Promise<Response> {
-        return Promise.resolve(playbackController.play())
+        return Promise.resolve(radioPlaybackController.play())
     },
     'PlaybackController.NextCommandIssued': async (handlerInput: HandlerInput): Promise<Response> => {
         return Promise.resolve(handlerInput.responseBuilder.getResponse())
@@ -83,6 +83,6 @@ export const IntentHandlers: IHandler = {
         return Promise.resolve(handlerInput.responseBuilder.getResponse())
     },
     'PlaybackController.PauseCommandIssued': async function(handlerInput: HandlerInput): Promise<Response> {
-        return Promise.resolve(playbackController.stop())
+        return Promise.resolve(radioPlaybackController.stop())
     },
 }

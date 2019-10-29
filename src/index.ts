@@ -1,4 +1,6 @@
 import * as AWS from 'ask-sdk-core'
+import { AudioPlayerHandlers } from './handlers/AudioPlayerHandlers'
+import { IntentHandlers } from './handlers/IntentHandlers'
 
 import { RequestEnvelope, ResponseEnvelope } from 'ask-sdk-model'
 
@@ -10,7 +12,10 @@ export async function handler(event: RequestEnvelope, context: any, callback: an
     const factory = AWS.SkillBuilders.custom().addRequestHandlers(
         CheckAudioInterfaceHandler,
         new SkillEventHandler(),
-        MainRequestHandler.builder().build()
+        MainRequestHandler.builder()
+            .withHandlers(IntentHandlers)
+            .withHandlers(AudioPlayerHandlers)
+            .build()
     )
 
     const skill = factory.create()
@@ -19,6 +24,7 @@ export async function handler(event: RequestEnvelope, context: any, callback: an
         const responseEnvelope: ResponseEnvelope = await skill.invoke(event, context)
         return callback(null, responseEnvelope)
     } catch (err) {
+        console.log(JSON.stringify(err, null, 2))
         return callback(err)
     }
 }

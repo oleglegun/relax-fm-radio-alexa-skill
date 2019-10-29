@@ -2,7 +2,7 @@ import { ResponseFactory } from 'ask-sdk-core'
 
 const RADIO_PLAYLIST_URL = 'https://relax-fm-radio.s3.amazonaws.com/playlist.m3u'
 
-class PlaybackController {
+class RadioPlaybackController {
     public play() {
         const result = ResponseFactory.init()
 
@@ -21,4 +21,4 @@ class PlaybackController {
     }
 }
 
-export const playbackController = new PlaybackController()
+export const radioPlaybackController = new RadioPlaybackController()
