@@ -1,16 +1,20 @@
 {
-  "name": "relax-fm-radio-alexa-skill",
-  "version": "0.0.1",
-  "description": "Listen to your favorite radio station right on Alexa device",
-  "main": "index.js",
-  "repository": "https://github.com/oleglegun/relax-fm-radio-alexa-skill",
-  "author": "Oleg Legun <oleg.legun@gmail.com>",
-  "license": "MIT",
-  "dependencies": {
-    "ask-sdk-core": "^2.7.0",
-    "ask-sdk-model": "^1.25.1"
-  },
-  "devDependencies": {
-    "@types/node": "^12.12.15"
-  }
+    "name": "relax-fm-radio-alexa-skill",
+    "version": "0.0.1",
+    "description": "Listen to your favorite radio station right on Alexa device",
+    "main": "index.js",
+    "repository": "https://github.com/oleglegun/relax-fm-radio-alexa-skill",
+    "author": "Oleg Legun <oleg.legun@gmail.com>",
+    "license": "MIT",
+    "scripts": {
+        "deploy": "bash ./scripts/deploy.sh",
+        "publish": "bash ./scripts/publish.sh"
+    },
+    "dependencies": {
+        "ask-sdk-core": "^2.7.0",
+        "ask-sdk-model": "^1.25.1"
+    },
+    "devDependencies": {
+        "@types/node": "^12.12.15"
+    }
 }

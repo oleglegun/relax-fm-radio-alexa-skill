@@ -52,6 +52,9 @@ export const IntentHandlers: IHandler = {
     'AMAZON.ResumeIntent': async function(handlerInput: HandlerInput): Promise<Response> {
         return Promise.resolve(radioPlaybackController.play())
     },
+    'AMAZON.RepeatIntent': async function(handlerInput: HandlerInput): Promise<Response> {
+        return Promise.resolve(radioPlaybackController.play())
+    },
     'AMAZON.LoopOnIntent': async function(handlerInput: HandlerInput): Promise<Response> {
         return this['AMAZON.StartOverIntent'](handlerInput)
     },

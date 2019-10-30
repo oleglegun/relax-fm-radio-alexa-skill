@@ -35,9 +35,11 @@
                     "name": "PlayRelaxRadio",
                     "slots": [],
                     "samples": [
-                        "play",
+                        "start",
                         "play relax radio",
                         "play radio",
+                        "play relax",
+                        "play relax fm",
                         "play radio relax"
                     ]
                 }
